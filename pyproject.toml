@@ -9,8 +9,23 @@ keywords = ["reqtest", "requests", "http", "automation", "testing"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+pydantic = "^1.10.2"
+aiohttp = "^3.8.3"
+typer = "^0.6.1"
 
 [tool.poetry.dev-dependencies]
+black = "^22.8.0"
+isort = "^5.10.1"
+taskipy = "^1.10.3"
+
+[tool.taskipy]
+format = "isort . --profile black && black ."
+
+[tool.black]
+line-length = 120
+
+[tool.poetry.scripts]
+reqtest = "reqtest.cli:main"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
